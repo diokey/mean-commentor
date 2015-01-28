@@ -5,7 +5,7 @@ var Comment = require('./comment.model');
 
 // Get list of comments
 exports.index = function(req, res) {
-  Comment.find(function (err, comments) {
+  Comment.loadRecent(function (err, comments) {
     if(err) { return handleError(res, err); }
     return res.json(200, comments);
   });
@@ -22,7 +22,13 @@ exports.show = function(req, res) {
 
 // Creates a new comment in the DB.
 exports.create = function(req, res) {
-  Comment.create(req.body, function(err, comment) {
+  
+  delete req.body.date;
+ 
+  // include the user id from the session
+  var comment = new Comment(_.merge({author : req.user._id},req.body));
+
+  comment.save(function(err, comment) {
     if(err) { return handleError(res, err); }
     return res.json(201, comment);
   });
