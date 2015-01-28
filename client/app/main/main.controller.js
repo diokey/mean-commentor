@@ -28,4 +28,9 @@ angular.module('meanCommentorApp')
        $scope.newComment = '';
     };
 
+    $scope.removeComment = function (comment) {
+        $http.delete('api/comments/'+comment._id);
+        socket.syncUpdates('comment');
+    };
+
   });

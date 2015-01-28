@@ -16,6 +16,7 @@
     <!--list all comments -->
     <ul class="comment-list">
         <li ng-repeat="comment in comments">
+            <button class="close" ng-click="removeComment(comment)">&#x2718;</button>
             <header>{{comment.author.name}}</header>
             <p>{{comment.content}}</p>
         </li> 
