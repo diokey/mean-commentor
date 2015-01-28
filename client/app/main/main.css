@@ -1,0 +1,23 @@
+.comment-form {
+    clear: both;
+}
+.comment-form .btn-primary {
+    margin-top:7px;
+    float: right;
+}
+
+.comment-list {
+    padding:0;
+    list-style:none;
+}
+.comment-list header {
+    font-size : 16px;
+    font-weight: bold;
+}
+
+.comment-list li {
+    clear:both;
+    border : 1px solid #ddd;
+    margin: 7px 0;
+    padding: 5px;
+}

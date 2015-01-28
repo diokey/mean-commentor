@@ -6,10 +6,18 @@
     <iframe width="100%" height="410" src="//www.youtube.com/embed/DcJFdCmN98s" frameborder="0">
     </iframe>
 
-    <form class="comment-form">
-        <textarea class="form-control" rows="3" placeholder="Your comment here" required>
+    <form class="comment-form" ng-submit="addComment()" name="commentForm">
+        <textarea ng-model="newComent" class="form-control" rows="3" placeholder="Enter Your comment here" required>
         
         </textarea>
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">Post</button>
     </form>
+
+    <!--list all comments -->
+    <ul class="comment-list">
+        <li ng-repeat="comment in comments">
+            <header>{{comment.author.name}}</header>
+            <p>{{comment.content}}</p>
+        </li> 
+    </ul>
 </div>
