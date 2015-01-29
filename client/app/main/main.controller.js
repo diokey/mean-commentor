@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('meanCommentorApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
+  .controller('MainCtrl', function ($scope, $http, socket, Auth) {
     $scope.newComment = '';
-
+    $scope.user = Auth.getCurrentUser();
+    console.log($scope.user);
+    
     $http.get('/api/comments').success(function(comments) {
         $scope.comments = comments;
 
