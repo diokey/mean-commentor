@@ -10,7 +10,7 @@
         <textarea ng-model="newComment" class="form-control" rows="3" placeholder="Enter Your comment here" required>
         
         </textarea>
-        <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">Post</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">{{submitButton}}</button>
     </form>
 
     <!--list all comments -->

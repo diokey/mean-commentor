@@ -3,8 +3,9 @@
 angular.module('meanCommentorApp')
   .controller('MainCtrl', function ($scope, $http, socket, Auth) {
     $scope.newComment = '';
+    $scope.submitButton = 'Post';
     $scope.user = Auth.getCurrentUser();
-    console.log($scope.user);
+    $scope.editing = false;
     
     $http.get('/api/comments').success(function(comments) {
         $scope.comments = comments;
@@ -25,14 +26,29 @@ angular.module('meanCommentorApp')
 
     //use our rest api to post new Comments
     $scope.addComment = function () {
-       $http.post('/api/comments',{content : $scope.newComment});
+
+       if ( ! $scope.editing) { 
+           $http.post('/api/comments',{content : $scope.newComment});
+       }else {
+           $http.put('api/comments/'+$scope.editedComment._id,{content : $scope.newComment});
+       }
 
        $scope.newComment = '';
+       delete $scope.editedComment;
+       $scope.submitButton = 'Post';
+       $scope.editing = false;
     };
 
     $scope.removeComment = function (comment) {
         $http.delete('api/comments/'+comment._id);
         socket.syncUpdates('comment');
+    };
+
+    $scope.editComment = function (comment) {
+       $scope.newComment = comment.content;
+       $scope.editedComment = comment;
+       $scope.editing = true;
+       $scope.submitButton = 'Update';
     };
 
   });
