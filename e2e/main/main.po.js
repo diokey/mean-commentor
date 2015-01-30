@@ -7,8 +7,9 @@
 
 var MainPage = function() {
   this.iFrame = element(by.css('iframe'));
-  this.commentBox = element(by.css('textarea'));
+  this.commentBox = element(by.model('newComment'));
   this.submitBtn = element(by.css('button[type="submit"]'));
+  this.commentList = element.all(by.repeater('comment in comments'));
 };
 
 module.exports = new MainPage();
