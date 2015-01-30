@@ -16,17 +16,18 @@ describe('Main View', function() {
 
   it('should at leat have a comment placeholder', function() {
       
-    expect(page.commentList.length).not.toBeLessThan(0);
+    expect(page.commentList.count()).not.toBeLessThan(4);
   });
 
-  it('should add a comment in the comment list', function() {
-     var old = page.commentList.length;
-     console.log(old);
+  it('should should redirect the user to login if not connected', function() {
+     var old = page.commentList.count();
      page.commentBox.sendKeys('Some text from protactor');
      page.submitBtn.click();
-     console.log('new lenght');
-     console.log(page.commentList.length);
-     expect(page.commentList.length).not.toBeLessThan(old);
+
+     //if not logged in, should expect to be logged in
+     expect(browser.getLocationAbsUrl()).toMatch('/login');
+     //var newcount = page.commentList.count();
+     //expect(old).toBeLessThan(newcount);
   });
 
 });
