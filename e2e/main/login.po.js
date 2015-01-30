@@ -11,6 +11,7 @@ var LoginPage = function () {
    this.loginBtn = element(by.css('.btn-login'));
    this.registerBtn = element(by.css('.btn-register'));
    this.h1El = element(by.css('h1'));
+   this.otherErrors = element(by.binding('errors.other'));
 };
 
 module.exports = new LoginPage();

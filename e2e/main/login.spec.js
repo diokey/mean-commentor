@@ -17,6 +17,13 @@ describe('Login page', function() {
    });
 
    it('should fail to log user in when proviided wrong credentials', function() {
-       
+      expect(page.otherErrors.getText()).toBeFalsy(); 
+      page.emailFieldd.sendKeys('noemail@email.com');
+      page.passwordField.sendKeys('mysecret');
+      page.loginBtn.click();
+
+      expect(page.otherErrors.getText()).toBeTruthy();
+      expect(browser.getLocationAbsUrl()).toMatch('/login');
+
    });
 });
