@@ -5,6 +5,12 @@
 
 'use strict';
 
-var loginPaage = function () {
-    
-}
+var LoginPage = function () {
+   this.emailFieldd = element(by.model('user.email'));
+   this.passwordField = element(by.model('user.password'));
+   this.loginBtn = element(by.css('.btn-login'));
+   this.registerBtn = element(by.css('.btn-register'));
+   this.h1El = element(by.css('h1'));
+};
+
+module.exports = new LoginPage();
