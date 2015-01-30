@@ -6,9 +6,9 @@
 'use strict';
 
 var MainPage = function() {
-  this.heroEl = element(by.css('.hero-unit'));
-  this.h1El = this.heroEl.element(by.css('h1'));
-  this.imgEl = this.heroEl.element(by.css('img'));
+  this.iFrame = element(by.css('iframe'));
+  this.commentBox = element(by.css('textarea'));
+  this.submitBtn = element(by.css('button[type="submit"]'));
 };
 
 module.exports = new MainPage();

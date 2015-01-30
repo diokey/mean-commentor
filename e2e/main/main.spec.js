@@ -8,9 +8,10 @@ describe('Main View', function() {
     page = require('./main.po');
   });
 
-  it('should include jumbotron with correct data', function() {
-    expect(page.h1El.getText()).toBe('\'Allo, \'Allo!');
-    expect(page.imgEl.getAttribute('src')).toMatch(/assets\/images\/yeoman.png$/);
-    expect(page.imgEl.getAttribute('alt')).toBe('I\'m Yeoman');
+  it('should have video iframe and empty comment form', function() {
+    expect(page.iFrame.getAttribute('src')).toBe('http://www.youtube.com/embed/DcJFdCmN98s');
+    expect(page.submitBtn.getText()).toBe('Post');
+    expect((page.commentBox.getText())).toBe('');
   });
 });
+
