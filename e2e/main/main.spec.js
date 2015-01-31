@@ -19,7 +19,7 @@ describe('Main View', function() {
     expect(page.commentList.count()).not.toBeLessThan(4);
   });
 
-  it('should should redirect the user to login if not connected', function() {
+  it('should should add a new comment', function() {
      var old = page.commentList.count();
      page.commentBox.sendKeys('Some text from protactor');
      page.submitBtn.click();
