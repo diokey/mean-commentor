@@ -4,11 +4,17 @@ describe('Login page', function() {
    var page; 
 
    beforeEach(function(){
-       browser.get('/login');
        page = require('./login.po');
    });
 
-   it('should display login page', function() {
+   function logIn(email, password) {   
+    page.emailFieldd.sendKeys(email);
+    page.passwordField.sendKeys(password);
+    page.loginBtn.click();
+   }
+
+   it('should display login page', function() { 
+      browser.get('/login');
       expect(page.h1El.getText()).toMatch('Login');
       expect(page.emailFieldd.getText()).toBe('');
       expect(page.passwordField.getText()).toBe('');
@@ -17,13 +23,36 @@ describe('Login page', function() {
    });
 
    it('should fail to log user in when proviided wrong credentials', function() {
+      
+      browser.get('/login');
+      //error message should be empty at the beginning
       expect(page.otherErrors.getText()).toBeFalsy(); 
-      page.emailFieldd.sendKeys('noemail@email.com');
-      page.passwordField.sendKeys('mysecret');
+      
+      page.emailFieldd.sendKeys('dump@email.com');
+      page.passwordField.sendKeys('fakepswd');
       page.loginBtn.click();
-
+      page.emailFieldd.sendKeys('');
+      page.passwordField.sendKeys('');
+      
+      //an error message should be displayed
       expect(page.otherErrors.getText()).toBeTruthy();
+      //no rediretion should happen
       expect(browser.getLocationAbsUrl()).toMatch('/login');
 
+   });
+
+   it('should log user in if the correct credentials are provided', function() {
+       
+        browser.get('/login');
+        //error message should be empty at the beginning
+        expect(page.otherErrors.getText()).toBeFalsy(); 
+        
+        page.emailFieldd.sendKeys('admin@admin.com');
+        page.passwordField.sendKeys('admin');
+        page.loginBtn.click();
+        //console.log(page.otherErrors.getText());
+        
+        //no rediretion should happen
+        expect(browser.getLocationAbsUrl()).toMatch('/');
    });
 });

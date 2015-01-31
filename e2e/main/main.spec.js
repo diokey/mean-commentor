@@ -24,10 +24,8 @@ describe('Main View', function() {
      page.commentBox.sendKeys('Some text from protactor');
      page.submitBtn.click();
 
-     //if not logged in, should expect to be logged in
-     expect(browser.getLocationAbsUrl()).toMatch('/login');
-     //var newcount = page.commentList.count();
-     //expect(old).toBeLessThan(newcount);
+     var newcount = page.commentList.count();
+     expect(old).toBeLessThan(newcount);
   });
 
 });
