@@ -27,7 +27,7 @@ describe('Login page', function() {
       //error message should be empty at the beginning
       expect(page.otherErrors.getText()).toBeFalsy(); 
      
-      login('test@email.com','nopassword');
+      logIn('test@email.com','nopassword');
       
       //an error message should be displayed
       expect(page.otherErrors.getText()).toBeTruthy();
@@ -41,7 +41,7 @@ describe('Login page', function() {
         //error message should be empty at the beginning
         expect(page.otherErrors.getText()).toBeFalsy(); 
        
-        login('admin@admin.com','admin');
+        logIn('admin@admin.com','admin');
         
         //no rediretion should happen
         expect(browser.getLocationAbsUrl()).toMatch('/');
