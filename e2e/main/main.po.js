@@ -10,6 +10,9 @@ var MainPage = function() {
   this.commentBox = element(by.model('newComment'));
   this.submitBtn = element(by.css('button[type="submit"]'));
   this.commentList = element.all(by.repeater('comment in comments'));
+  this.ul = element(by.css('.comment-list'));
+  this.editLink = this.ul.element(by.css('.edit'));
+  this.deleteLink = this.ul.element(by.css('.delete'));
 };
 
 module.exports = new MainPage();

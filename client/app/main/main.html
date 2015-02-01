@@ -14,8 +14,8 @@
     <!--list all comments -->
     <ul class="comment-list">
         <li ng-repeat="comment in comments">
-            <button class="close" ng-show="{{user.role === 'admin'}}" ng-click="removeComment(comment)">&#x2718;</button>
-            <button class="close" ng-show="{{comment.author._id === user._id || user.role === 'admin'}}" ng-click="editComment(comment)">&#x270D;</button>
+            <button class="close edit" ng-show="{{user.role === 'admin'}}" ng-click="removeComment(comment)">&#x2718;</button>
+            <button class="close delete" ng-show="{{comment.author._id === user._id || user.role === 'admin'}}" ng-click="editComment(comment)">&#x270D;</button>
             <header>{{comment.author.name}}</header>
             <p>{{comment.content}}</p>
         </li> 

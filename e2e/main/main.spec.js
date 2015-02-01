@@ -28,5 +28,18 @@ describe('Main View', function() {
      expect(old).toBeLessThan(newcount);
   });
 
+  it('should edit previously added comment', function() {
+      expect(page.editLink).toBeTruthy();
+      page.editLink.click();
+
+      expect(page.commentBox).not.toBe('');
+
+      page.commentBox.sendKeys(page.commentBox.getText()+' some new edits');
+      page.submitBtn.click();
+
+      var old = page.commentList.count();
+      expect(page.commentList.count()).toBe(old);
+  });
+
 });
 
