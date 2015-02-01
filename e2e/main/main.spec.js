@@ -34,7 +34,7 @@ describe('Main View', function() {
 
       expect(page.commentBox).not.toBe('');
 
-      page.commentBox.sendKeys('some new edits');
+      page.commentBox.sendKeys(' some new edits');
       page.submitBtn.click();
 
       var old = page.commentList.count();
