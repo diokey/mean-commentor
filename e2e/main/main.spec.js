@@ -29,7 +29,7 @@ describe('Main View', function() {
   });
 
   it('should edit previously added comment', function() {
-      expect(page.editLink).toBeTruthy();
+      expect(page.editLink.getText()).toBeTruthy();
       page.editLink.click();
 
       expect(page.commentBox).not.toBe('');
@@ -39,6 +39,16 @@ describe('Main View', function() {
 
       var old = page.commentList.count();
       expect(page.commentList.count()).toBe(old);
+  });
+
+
+  it('should edit previously added comment', function() {
+    expect(page.deleteLink.getText()).toBeTruthy();
+    
+    var old = page.commentList.count();
+    page.deleteLink.click();
+    
+    expect(page.commentList.count()).toBeLessThan(old);
   });
 
 });
