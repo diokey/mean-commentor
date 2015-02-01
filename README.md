@@ -6,7 +6,9 @@ This repo contains and MEAN app that uses socket.io to automatically update all 
 
 ### Getting stared
 
-### Contributiing
+### Demo
+
+### Contributing
 
 ### TO DO
 
