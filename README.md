@@ -4,6 +4,12 @@ This repo contains and MEAN app that uses socket.io to automatically update all 
 
 ### Installation
 
+Download or clone this projet
+
+``
+git clone https://github.com/diokey/mean-commentor.git
+``
+
 ### Getting stared
 
 ### Demo
