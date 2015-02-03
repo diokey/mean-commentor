@@ -18,4 +18,3 @@ git clone https://github.com/diokey/mean-commentor.git
 
 ### TO DO
 
-Add more infos to this README
