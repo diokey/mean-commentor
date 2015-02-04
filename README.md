@@ -7,7 +7,8 @@ This repo contains and MEAN app that uses socket.io to automatically update all 
 Download or clone this projet
 
 ``
-git clone https://github.com/diokey/mean-commentor.git
+git clone https://github.com/diokey/mean-commentor.github
+grunt serve
 ``
 
 ### Getting stared
