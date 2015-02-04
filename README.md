@@ -30,6 +30,8 @@ To build the production version, run
 grunt 
 ```
 
+The project is configure to run on openshit
+
 ### Getting stared
 
 ### Demo
