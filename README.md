@@ -38,5 +38,3 @@ The project is configure to run on openshit
 
 ### Contributing
 
-### TO DO
-
