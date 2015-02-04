@@ -16,8 +16,19 @@ Download or clone this projet
 
 ``
 git clone https://github.com/diokey/mean-commentor.github
-grunt serve
 ``
+This project uses grunt task runner. Just run 
+
+For development run
+```
+grunt serve
+```
+
+To build the production version, run 
+
+```
+grunt 
+```
 
 ### Getting stared
 
