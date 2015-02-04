@@ -2,6 +2,14 @@
 
 This repo contains and MEAN app that uses socket.io to automatically update all the comments posted on a video in real time.
 
+### Requirements
+This is a javascript application.
+You need 
+
+* [node.js](https://nodejs.org)
+* [mongo db](http://www.mongodb.org)
+
+
 ### Installation
 
 Download or clone this projet
