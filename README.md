@@ -8,7 +8,8 @@ You need
 
 * [node.js](https://nodejs.org)
 * [mongo db](http://www.mongodb.org)
-
+* Npm
+* Gulp
 
 ### Installation
 
